@@ -43,5 +43,16 @@
         android:layout_below="@+id/checkBg"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play again"
+        android:onClick="replay"
+        android:id="@+id/replay"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/hellotxt"
+        android:layout_alignEnd="@+id/hellotxt" />
+
 
 </RelativeLayout>

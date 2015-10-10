@@ -18,12 +18,13 @@ import java.util.Scanner;
 public class MainActivity extends ActionBarActivity {
     String word;
     String lang;
+    TextView helloTxt;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView helloTxt = (TextView)findViewById(R.id.hellotxt);
+        helloTxt = (TextView)findViewById(R.id.hellotxt);
         word=readTxt();
         helloTxt.setText(word);
         lang="bg";
@@ -52,7 +53,10 @@ public class MainActivity extends ActionBarActivity {
         }
         return word;
     }
-
+    public void replay(){
+        word=readTxt();
+        helloTxt.setText(word);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
