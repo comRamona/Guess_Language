@@ -3,6 +3,7 @@
 android:orientation="vertical"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
+    android:gravity="center"
     >
 
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
@@ -10,8 +11,9 @@ android:layout_height="fill_parent"
 
 <TextView
     android:id="@+id/hellotxt"
-    android:layout_width="fill_parent"
+    android:layout_width="372dp"
     android:layout_height="wrap_content"
-    android:textSize="22px"
+    android:textSize="28px"
+
     />
 </LinearLayout>

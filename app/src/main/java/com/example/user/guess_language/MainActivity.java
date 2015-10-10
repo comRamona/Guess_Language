@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Scanner;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -26,23 +27,22 @@ public class MainActivity extends ActionBarActivity {
 
         InputStream inputStream = getResources().openRawResource(R.raw.hello);
 
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
-        int i;
+       String word="cuvant";
         try {
-            i = inputStream.read();
-            while (i != -1)
-            {
-                byteArrayOutputStream.write(i);
-                i = inputStream.read();
-            }
-            inputStream.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
 
-        return byteArrayOutputStream.toString();
+            Scanner sc = new Scanner(inputStream);
+            int nr = sc.nextInt();
+            int index = 0;
+            while (index != nr) {
+                word = sc.next();
+                index++;
+            }
+            sc.close();
+        }
+        catch(Exception e){
+
+        }
+        return word;
     }
 
 
