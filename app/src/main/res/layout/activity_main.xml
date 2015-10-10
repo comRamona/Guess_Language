@@ -2,57 +2,70 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center">
+    android:layout_gravity="center"
+    android:paddingRight="16dp" android:paddingLeft="16dp" android:layout_height="fill_parent"
+    android:layout_width="fill_parent" >
 
-<TextView
-    android:id="@+id/hellotxt"
-    android:layout_width="372dp"
-    android:layout_height="wrap_content"
-    android:textSize="28px"
 
-    android:layout_above="@+id/button2"
-    android:layout_centerHorizontal="true"
-    android:layout_marginBottom="76dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/hellotxt"
+        android:layout_width="372dp"
         android:layout_height="wrap_content"
-        android:onClick="checkRu"
-        android:text="Russian"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:textSize="72px"
+        android:textAlignment="center"
+        android:layout_marginTop="90dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:paddingBottom="100dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bulgarian"
+
+
+    <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp" android:layout_width="110dp"
+        android:scaleType="fitCenter" android:paddingTop="10dp" android:paddingBottom="10dp"
+        android:background="@android:color/transparent" android:cropToPadding="false"
+        android:adjustViewBounds="true" android:layout_centerHorizontal="true"
+        android:src="@drawable/rom" android:id="@+id/TC"
+        android:onClick="checkRo"
+        android:layout_below="@+id/hellotxt"
+        />
+
+
+    <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp"
+        android:layout_width="110dp" android:scaleType="fitCenter" android:paddingTop="10dp" android:paddingBottom="10dp"
+        android:background="@android:color/transparent" android:cropToPadding="false" android:adjustViewBounds="true"
+        android:src="@drawable/bg" android:id="@+id/TR"
         android:onClick="checkBg"
-        android:id="@+id/checkBg"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/TC"
+        android:layout_alignRight="@+id/BR"
+        android:layout_below="@+id/hellotxt"
+        android:layout_alignEnd="@+id/BR" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="French"
-        android:onClick="checkFr"
-        android:id="@+id/checkFr"
-        android:layout_below="@+id/checkBg"
-        android:layout_centerHorizontal="true" />
+    <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp" android:layout_width="110dp"
+        android:scaleType="fitCenter" android:paddingTop="10dp" android:paddingBottom="10dp"
+        android:background="@android:color/transparent" android:cropToPadding="false" android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true" android:src="@drawable/ru" android:id="@+id/TL"
+        android:onClick="checkRu"
+        android:layout_below="@+id/hellotxt"
+        android:layout_toLeftOf="@+id/TC"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play again"
-        android:onClick="replay"
-        android:id="@+id/replay"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/hellotxt"
-        android:layout_alignEnd="@+id/hellotxt" />
+    <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp"
+        android:layout_width="110dp" android:scaleType="fitCenter" android:paddingTop="10dp"
+        android:paddingBottom="10dp" android:background="@android:color/transparent" android:cropToPadding="false"
+        android:adjustViewBounds="true" android:layout_centerHorizontal="true" android:src="@drawable/bg" android:id="@+id/BC"
+        android:layout_below="@+id/TC"/>
 
+    <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp"
+        android:layout_width="110dp" android:scaleType="fitCenter" android:paddingTop="10dp"
+        android:paddingBottom="10dp" android:background="@android:color/transparent"
+        android:cropToPadding="false" android:adjustViewBounds="true" android:layout_centerHorizontal="true"
+        android:src="@drawable/bg" android:id="@+id/BR" android:layout_toRightOf="@+id/BC" android:layout_below="@+id/TC"/>
+
+    <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp"
+        android:layout_width="110dp" android:scaleType="fitCenter" android:paddingTop="10dp" android:paddingBottom="10dp"
+        android:background="@android:color/transparent" android:cropToPadding="false" android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true" android:src="@drawable/bg" android:id="@+id/BL" android:layout_toLeftOf="@+id/BC"
+        android:layout_below="@+id/TC"/>
 
 </RelativeLayout>

@@ -1,10 +1,14 @@
 package com.example.user.guess_language;
 
+import android.app.AlertDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,8 +20,8 @@ import java.util.Scanner;
 
 
 public class MainActivity extends ActionBarActivity {
-    String word;
-    String lang;
+    String word="";
+    String lang="";
     TextView helloTxt;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
         helloTxt = (TextView)findViewById(R.id.hellotxt);
         word=readTxt();
         helloTxt.setText(word);
-        lang="bg";
+
     }
 
     private String readTxt(){
@@ -41,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
             int nr = sc.nextInt();
             int randomNum = rand.nextInt((nr - 1) + 1) + 1;
             int index = 0;
-            while (index != nr) {
+            while (index != randomNum) {
                 word = sc.next();
                 lang=sc.next();
                 index++;
@@ -53,10 +57,50 @@ public class MainActivity extends ActionBarActivity {
         }
         return word;
     }
-    public void replay(){
-        word=readTxt();
-        helloTxt.setText(word);
+
+    public void checkRu(View view){
+        AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
+                (ViewGroup) findViewById(R.id.layout_root));
+        ImageView image = (ImageView) layout.findViewById(R.id.imageView);
+        if(lang.equals("ru")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        else
+            image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        imageDialog.setView(layout);
+        imageDialog.create();
+        imageDialog.show();
     }
+    public void checkBg(View view){
+        AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
+                (ViewGroup) findViewById(R.id.layout_root));
+        ImageView image = (ImageView) layout.findViewById(R.id.imageView);
+        if(lang.equals("bg")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        else
+            image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        imageDialog.setView(layout);
+        imageDialog.create();
+        imageDialog.show();
+    }
+    public void checkRo(View view){
+        AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
+                (ViewGroup) findViewById(R.id.layout_root));
+        ImageView image = (ImageView) layout.findViewById(R.id.imageView);
+        if(lang.equals("ro")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        else
+            image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        imageDialog.setView(layout);
+        imageDialog.create();
+        imageDialog.show();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,21 +109,7 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    public void checkRu(View view){
-        if(lang.equals("ru"))
-            Toast.makeText(this, "Hurray !", Toast.LENGTH_LONG).show();
-        else Toast.makeText(this, "You are wrong, as always !", Toast.LENGTH_LONG).show();
-    }
-    public void checkBg(View view){
-        if(lang.equals("bg"))
-            Toast.makeText(this, "Hurray !", Toast.LENGTH_LONG).show();
-        else Toast.makeText(this, "You are wrong, as always !", Toast.LENGTH_LONG).show();
-    }
-    public void checkFr(View view){
-        if(lang.equals("fr"))
-            Toast.makeText(this, "Hurray !", Toast.LENGTH_LONG).show();
-        else Toast.makeText(this, "You are wrong, as always !", Toast.LENGTH_LONG).show();
-    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
