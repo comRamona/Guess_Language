@@ -11,7 +11,7 @@
         android:id="@+id/hellotxt"
         android:layout_width="372dp"
         android:layout_height="wrap_content"
-        android:textSize="72px"
+        android:textSize="150px"
         android:textAlignment="center"
         android:layout_marginTop="90dp"
         android:layout_alignParentTop="true"
@@ -71,6 +71,13 @@
         android:layout_below="@+id/TC"
         android:onClick="checkHu"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/my_score"
+        android:layout_below="@+id/BC"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

@@ -21,6 +21,8 @@ import java.util.Scanner;
 
 
 public class MainActivity extends ActionBarActivity {
+    int good = 0;
+    int total = 0;
     String word="";
     String lang="";
     TextView helloTxt;
@@ -43,6 +45,8 @@ public class MainActivity extends ActionBarActivity {
         TextView myAwesomeTextView = (TextView)findViewById(R.id.hellotxt);
         word=readTxt();
         myAwesomeTextView.setText(word);
+        TextView myScore = (TextView)findViewById(R.id.my_score);
+        myScore.setText("100%");
     }
 
     private String readTxt(){
@@ -76,15 +80,22 @@ public class MainActivity extends ActionBarActivity {
         View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
                 (ViewGroup) findViewById(R.id.layout_root));
         ImageView image = (ImageView) layout.findViewById(R.id.imageView);
-        if(lang.equals("ru")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        if(lang.equals("ru")) {
+            good++;
+            image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+            Restart();
+        }
         else
             image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        total++;
         imageDialog.setView(layout);
         imageDialog.create();
         imageDialog.show();
+        ResetScore();
+
 
             }
-    
+
     public void checkHu(View view){
         AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -92,12 +103,18 @@ public class MainActivity extends ActionBarActivity {
         View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
                 (ViewGroup) findViewById(R.id.layout_root));
         ImageView image = (ImageView) layout.findViewById(R.id.imageView);
-        if(lang.equals("hu")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        if(lang.equals("hu")) {
+            good++;
+            image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+            Restart();
+        }
         else
             image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        total++;
         imageDialog.setView(layout);
         imageDialog.create();
         imageDialog.show();
+        ResetScore();
     }
     public void checkSk(View view){
         AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
@@ -106,12 +123,18 @@ public class MainActivity extends ActionBarActivity {
         View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
                 (ViewGroup) findViewById(R.id.layout_root));
         ImageView image = (ImageView) layout.findViewById(R.id.imageView);
-        if(lang.equals("sk")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        if(lang.equals("sk")) {
+            good++;
+            image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+            Restart();
+        }
         else
             image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        total++;
         imageDialog.setView(layout);
         imageDialog.create();
         imageDialog.show();
+        ResetScore();
     }
     public void checkBg(View view){
         AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
@@ -120,12 +143,15 @@ public class MainActivity extends ActionBarActivity {
         View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
                 (ViewGroup) findViewById(R.id.layout_root));
         ImageView image = (ImageView) layout.findViewById(R.id.imageView);
-        if(lang.equals("bg")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
-        else
-            image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        if(lang.equals("bg")) {image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+            Restart();
+            good++;}
+        else image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        total++;
         imageDialog.setView(layout);
         imageDialog.create();
         imageDialog.show();
+        ResetScore();
     }
     public void checkRo(View view){
         AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
@@ -134,12 +160,18 @@ public class MainActivity extends ActionBarActivity {
         View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
                 (ViewGroup) findViewById(R.id.layout_root));
         ImageView image = (ImageView) layout.findViewById(R.id.imageView);
-        if(lang.equals("ro")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        if(lang.equals("ro")) {
+            good++;
+            image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+            Restart();
+        }
         else
             image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        total++;
         imageDialog.setView(layout);
         imageDialog.create();
         imageDialog.show();
+        ResetScore();
     }
 
 
@@ -164,5 +196,12 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void ResetScore() {
+        TextView myScore = (TextView)findViewById(R.id.my_score);
+        int x= good*100/total;
+
+        myScore.setText(Integer.toString(x) + "%");
     }
 }
