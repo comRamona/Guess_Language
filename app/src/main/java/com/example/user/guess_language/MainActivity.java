@@ -4,7 +4,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -14,14 +16,17 @@ import java.util.Scanner;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    String word;
+    String lang;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         TextView helloTxt = (TextView)findViewById(R.id.hellotxt);
-        helloTxt.setText(readTxt());
+        word=readTxt();
+        helloTxt.setText(word);
+        lang="bg";
     }
 
     private String readTxt(){
@@ -37,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
             int index = 0;
             while (index != nr) {
                 word = sc.next();
+                lang=sc.next();
                 index++;
             }
             sc.close();
@@ -55,6 +61,21 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
+    public void checkRu(View view){
+        if(lang.equals("ru"))
+            Toast.makeText(this, "Hurray !", Toast.LENGTH_LONG).show();
+        else Toast.makeText(this, "You are wrong, as always !", Toast.LENGTH_LONG).show();
+    }
+    public void checkBg(View view){
+        if(lang.equals("bg"))
+            Toast.makeText(this, "Hurray !", Toast.LENGTH_LONG).show();
+        else Toast.makeText(this, "You are wrong, as always !", Toast.LENGTH_LONG).show();
+    }
+    public void checkFr(View view){
+        if(lang.equals("fr"))
+            Toast.makeText(this, "Hurray !", Toast.LENGTH_LONG).show();
+        else Toast.makeText(this, "You are wrong, as always !", Toast.LENGTH_LONG).show();
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

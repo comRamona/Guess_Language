@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-    android:gravity="center"
-    >
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center">
 
 <TextView
     android:id="@+id/hellotxt"
@@ -15,5 +12,36 @@ android:layout_height="fill_parent"
     android:layout_height="wrap_content"
     android:textSize="28px"
 
-    />
-</LinearLayout>
+    android:layout_above="@+id/button2"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="76dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkRu"
+        android:text="Russian"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bulgarian"
+        android:onClick="checkBg"
+        android:id="@+id/checkBg"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="French"
+        android:onClick="checkFr"
+        android:id="@+id/checkFr"
+        android:layout_below="@+id/checkBg"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
