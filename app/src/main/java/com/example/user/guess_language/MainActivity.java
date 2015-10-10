@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -29,9 +30,10 @@ public class MainActivity extends ActionBarActivity {
 
        String word="cuvant";
         try {
-
+            Random rand=new Random();
             Scanner sc = new Scanner(inputStream);
             int nr = sc.nextInt();
+            int randomNum = rand.nextInt((nr - 1) + 1) + 1;
             int index = 0;
             while (index != nr) {
                 word = sc.next();
