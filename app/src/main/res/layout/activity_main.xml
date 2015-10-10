@@ -53,19 +53,24 @@
     <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp"
         android:layout_width="110dp" android:scaleType="fitCenter" android:paddingTop="10dp"
         android:paddingBottom="10dp" android:background="@android:color/transparent" android:cropToPadding="false"
-        android:adjustViewBounds="true" android:layout_centerHorizontal="true" android:src="@drawable/bg" android:id="@+id/BC"
+        android:adjustViewBounds="true" android:layout_centerHorizontal="true" android:src="@drawable/hu" android:id="@+id/BC"
+        android:onClick="checkHu"
         android:layout_below="@+id/TC"/>
 
     <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp"
         android:layout_width="110dp" android:scaleType="fitCenter" android:paddingTop="10dp"
         android:paddingBottom="10dp" android:background="@android:color/transparent"
         android:cropToPadding="false" android:adjustViewBounds="true" android:layout_centerHorizontal="true"
-        android:src="@drawable/bg" android:id="@+id/BR" android:layout_toRightOf="@+id/BC" android:layout_below="@+id/TC"/>
+        android:src="@drawable/sk" android:id="@+id/BR" android:layout_toRightOf="@+id/BC" android:layout_below="@+id/TC"
+        android:onClick="checkSk"/>
 
     <ImageButton android:paddingRight="10dp" android:paddingLeft="10dp" android:layout_height="90dp"
         android:layout_width="110dp" android:scaleType="fitCenter" android:paddingTop="10dp" android:paddingBottom="10dp"
         android:background="@android:color/transparent" android:cropToPadding="false" android:adjustViewBounds="true"
-        android:layout_centerHorizontal="true" android:src="@drawable/bg" android:id="@+id/BL" android:layout_toLeftOf="@+id/BC"
-        android:layout_below="@+id/TC"/>
+        android:layout_centerHorizontal="true" android:src="@drawable/c" android:id="@+id/BL" android:layout_toLeftOf="@+id/BC"
+        android:layout_below="@+id/TC"
+        android:onClick="checkHu"/>
+
+
 
 </RelativeLayout>

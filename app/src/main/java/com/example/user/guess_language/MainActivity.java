@@ -3,6 +3,7 @@ package com.example.user.guess_language;
 import android.app.AlertDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,9 +30,19 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         helloTxt = (TextView)findViewById(R.id.hellotxt);
-        word=readTxt();
-        helloTxt.setText(word);
+        Restart();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Restart();
+    }
+
+    private void Restart() {
+        TextView myAwesomeTextView = (TextView)findViewById(R.id.hellotxt);
+        word=readTxt();
+        myAwesomeTextView.setText(word);
     }
 
     private String readTxt(){
@@ -66,6 +77,36 @@ public class MainActivity extends ActionBarActivity {
                 (ViewGroup) findViewById(R.id.layout_root));
         ImageView image = (ImageView) layout.findViewById(R.id.imageView);
         if(lang.equals("ru")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        else
+            image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        imageDialog.setView(layout);
+        imageDialog.create();
+        imageDialog.show();
+
+            }
+    
+    public void checkHu(View view){
+        AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
+                (ViewGroup) findViewById(R.id.layout_root));
+        ImageView image = (ImageView) layout.findViewById(R.id.imageView);
+        if(lang.equals("hu")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
+        else
+            image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
+        imageDialog.setView(layout);
+        imageDialog.create();
+        imageDialog.show();
+    }
+    public void checkSk(View view){
+        AlertDialog.Builder imageDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View layout = inflater.inflate(R.layout.custom_fullimage_dialog,
+                (ViewGroup) findViewById(R.id.layout_root));
+        ImageView image = (ImageView) layout.findViewById(R.id.imageView);
+        if(lang.equals("sk")) image.setImageDrawable(getResources().getDrawable(R.drawable.right));
         else
             image.setImageDrawable(getResources().getDrawable(R.drawable.wrong));
         imageDialog.setView(layout);
